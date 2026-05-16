@@ -1,0 +1,50 @@
+{
+  "name": "@hyperboosters/agents-mcp",
+  "version": "0.1.0",
+  "description": "MCP server exposing OpenClaw / HyperBoosters specialized agents as MCP tools. Use Ravi, Tiago, Paulo, Pedro and 20+ other Brazilian-trained AI agents inside Claude Desktop, Cursor, Codex, Windsurf, or any MCP client.",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "hyperboosters-agents-mcp": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "openclaw",
+    "hyperboosters",
+    "ai-agents",
+    "claude",
+    "cursor",
+    "brazilian-ai",
+    "portuguese"
+  ],
+  "author": "Raoni Barbalho <raonibarbalho@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/raoni-barbalho/agents-mcp"
+  },
+  "homepage": "https://hyperboosters.com",
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}
