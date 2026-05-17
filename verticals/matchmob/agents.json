@@ -1,0 +1,49 @@
+{
+  "vertical": "matchmob",
+  "domain": "matchmob.hyperboosters.com",
+  "description": "Event matchmaking + crowd intelligence + market research agents",
+  "agents": [
+    {
+      "slug": "research",
+      "id": "navigator",
+      "tier": "pro",
+      "primary": true,
+      "description": "Web research for attendee/sponsor/venue intel"
+    },
+    {
+      "slug": "analysis",
+      "id": "analysis",
+      "tier": "pro",
+      "description": "Match quality scoring + SWOT per attendee segment"
+    },
+    {
+      "slug": "marketing",
+      "id": "marketing",
+      "tier": "free",
+      "description": "Event copy + invite messaging + post-event recap"
+    },
+    {
+      "slug": "memory",
+      "id": "brain-curator",
+      "tier": "business",
+      "description": "Build attendee profile knowledge base across events"
+    }
+  ],
+  "canned_tasks": [
+    {
+      "name": "Pre-event attendee research",
+      "agent": "research",
+      "prompt_template": "Pesquise contexto público sobre {nome}, {empresa}, cargo {cargo}. Foco em: produtos recentes, mídia, evidências de interesses temáticos relacionados a {tema_evento}. 5 bullets."
+    },
+    {
+      "name": "Match quality scoring",
+      "agent": "analysis",
+      "prompt_template": "Dois participantes: A={perfil_a}, B={perfil_b}. Score de match 0-10 baseado em complementaridade vs sobreposição. Justifique em 3 bullets."
+    },
+    {
+      "name": "Invite messaging",
+      "agent": "marketing",
+      "prompt_template": "Mensagem de convite curta (max 300 chars) para {evento} em {data}. Audiência: {segmento}. Tom: {tom}. Inclua CTA único."
+    }
+  ]
+}

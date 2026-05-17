@@ -1,0 +1,33 @@
+{
+  "vertical": "anotameu",
+  "domain": "anotameu.com",
+  "description": "AnotaMeu — IA assistente para notas + organização pessoal. Lane: read-only ref from agents-mcp; main app lives in ~/dev/anotameu.",
+  "lane_note": "agents-mcp não modifica anotameu. Esta config existe para que AnotaMeu, quando quiser, embedar agentes HB via mesmo widget/API.",
+  "agents": [
+    {
+      "slug": "writer",
+      "id": "marketing",
+      "tier": "free",
+      "primary": true,
+      "description": "Reescreve nota em estilo X (formal, bullet, prosa)"
+    },
+    {
+      "slug": "summarizer",
+      "id": "brain-curator",
+      "tier": "pro",
+      "description": "Resumo + extração de ações de uma nota longa"
+    },
+    {
+      "slug": "research",
+      "id": "navigator",
+      "tier": "pro",
+      "description": "Pesquisa contexto referenciado em uma nota"
+    },
+    {
+      "slug": "coach",
+      "id": "ravi-owner-jarvis",
+      "tier": "free",
+      "description": "Ajuda usuário a refletir/organizar uma nota"
+    }
+  ]
+}

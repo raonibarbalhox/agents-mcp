@@ -1,0 +1,59 @@
+{
+  "vertical": "sales",
+  "domain": "sales.hyperboosters.com",
+  "description": "Sales team agents — outbound, follow-up, objection handling, deal review",
+  "agents": [
+    {
+      "slug": "sales",
+      "id": "ravi-hb-sales",
+      "tier": "pro",
+      "primary": true
+    },
+    {
+      "slug": "outbound",
+      "id": "sales",
+      "tier": "free",
+      "description": "Cheap outbound for cold email + LinkedIn DM"
+    },
+    {
+      "slug": "marketing",
+      "id": "marketing",
+      "tier": "free",
+      "description": "Content + headlines + brief writing"
+    },
+    {
+      "slug": "analysis",
+      "id": "analysis",
+      "tier": "pro",
+      "description": "Pipeline analytics + SWOT + market sizing"
+    },
+    {
+      "slug": "wa",
+      "id": "ravi-hb-wa",
+      "tier": "pro",
+      "description": "WhatsApp messaging strategist"
+    }
+  ],
+  "canned_tasks": [
+    {
+      "name": "Cold email — Brazilian CTO",
+      "agent": "outbound",
+      "prompt_template": "Cold email 3-5 linhas para CTO de {empresa_tipo} brasileira sobre {oferta}. Tom direto, sem buzzword. Termine com pergunta específica."
+    },
+    {
+      "name": "WhatsApp follow-up",
+      "agent": "wa",
+      "prompt_template": "Mensagem WhatsApp curta (<200 chars) follow-up de lead {nome} que reagiu mas não respondeu há {dias} dias. Contexto: {contexto}."
+    },
+    {
+      "name": "Objection handling",
+      "agent": "sales",
+      "prompt_template": "Cliente diz: '{objecao}'. Responder em pt-BR mineiro, 2 linhas, mantendo abertura para próxima conversa."
+    },
+    {
+      "name": "Deal post-mortem",
+      "agent": "analysis",
+      "prompt_template": "Deal perdido para {concorrente} por motivo {motivo}. Análise MECE em 5 bullets do que poderíamos ter feito diferente."
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "vertical": "hyperboosters",
+  "domain": "hyperboosters.com",
+  "description": "Full HyperBoosters agent suite — main flagship product",
+  "agents": [
+    {
+      "slug": "ravi",
+      "id": "ravi-owner-jarvis",
+      "tier": "free",
+      "primary": true,
+      "description": "Owner-proxy generalist, pt-BR mineiro"
+    },
+    {
+      "slug": "sales",
+      "id": "ravi-hb-sales",
+      "tier": "pro",
+      "description": "Vendas B2B SaaS BR"
+    },
+    {
+      "slug": "wa",
+      "id": "ravi-hb-wa",
+      "tier": "pro",
+      "description": "WhatsApp strategist"
+    },
+    {
+      "slug": "marketing",
+      "id": "marketing",
+      "tier": "free",
+      "description": "Content + copy"
+    },
+    {
+      "slug": "coding",
+      "id": "coding",
+      "tier": "pro",
+      "description": "Code review sênior"
+    },
+    {
+      "slug": "devops",
+      "id": "devops",
+      "tier": "pro",
+      "description": "CI/CD + infra"
+    },
+    {
+      "slug": "security",
+      "id": "security",
+      "tier": "business",
+      "description": "OWASP + LGPD"
+    },
+    {
+      "slug": "analysis",
+      "id": "analysis",
+      "tier": "pro",
+      "description": "Estratégia + SWOT"
+    },
+    {
+      "slug": "research",
+      "id": "navigator",
+      "tier": "pro",
+      "description": "Pesquisa web"
+    },
+    {
+      "slug": "creative",
+      "id": "creative",
+      "tier": "free",
+      "description": "Naming + brainstorm"
+    },
+    {
+      "slug": "pm",
+      "id": "pm",
+      "tier": "pro",
+      "description": "Product manager"
+    }
+  ],
+  "default_widget_agent": "ravi"
+}

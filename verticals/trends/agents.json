@@ -1,0 +1,55 @@
+{
+  "vertical": "trends",
+  "domain": "trends.hyperboosters.com",
+  "description": "Trend intelligence + content strategy + market signal agents",
+  "agents": [
+    {
+      "slug": "research",
+      "id": "navigator",
+      "tier": "pro",
+      "primary": true,
+      "description": "Web research + news aggregation"
+    },
+    {
+      "slug": "analysis",
+      "id": "analysis",
+      "tier": "pro",
+      "description": "Signal-vs-noise scoring + trend lifecycle staging"
+    },
+    {
+      "slug": "memory",
+      "id": "brain-curator",
+      "tier": "business",
+      "description": "Long-term trend memory + cross-period synthesis"
+    },
+    {
+      "slug": "marketing",
+      "id": "marketing",
+      "tier": "free",
+      "description": "Trend-to-content translation"
+    },
+    {
+      "slug": "creative",
+      "id": "creative",
+      "tier": "free",
+      "description": "Naming + headline + content angle generation"
+    }
+  ],
+  "canned_tasks": [
+    {
+      "name": "Weekly trend digest",
+      "agent": "research",
+      "prompt_template": "Top 5 tendências emergentes em {nicho} esta semana baseado em fontes públicas. Para cada: sinal, evidência, prazo provável."
+    },
+    {
+      "name": "Trend lifecycle scoring",
+      "agent": "analysis",
+      "prompt_template": "Tendência: {descricao}. Estágio do ciclo (early/growth/peak/decline)? Justifique 3 bullets + sinais que valida o estágio."
+    },
+    {
+      "name": "Content calendar from trends",
+      "agent": "marketing",
+      "prompt_template": "Crie 7 ideias de post para semana baseadas nas tendências: {trends_list}. Cada ideia: hook, hashtag principal, formato (carrossel/video/texto)."
+    }
+  ]
+}
