@@ -1,5 +1,9 @@
 # @hyperboosters/agents-mcp
 
+[![npm version](https://img.shields.io/npm/v/@hyperboosters/agents-mcp.svg)](https://www.npmjs.com/package/@hyperboosters/agents-mcp)
+[![npm downloads](https://img.shields.io/npm/dm/@hyperboosters/agents-mcp.svg)](https://www.npmjs.com/package/@hyperboosters/agents-mcp)
+[![license](https://img.shields.io/npm/l/@hyperboosters/agents-mcp.svg)](./LICENSE)
+
 > 16 Brazilian-trained AI agents — Ravi, Tiago, Filipe, João and more — as MCP tools for Claude Desktop, Cursor, Codex, Windsurf, and any MCP client.
 
 Talk to specialist agents directly from your IDE or AI client. No web UI to switch to, no copy-paste between tabs.

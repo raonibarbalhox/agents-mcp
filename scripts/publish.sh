@@ -24,6 +24,11 @@ npm run build
 echo "Publishing with OTP..."
 npm publish --access public --otp="$OTP"
 
+# Org default visibility may force private regardless of --access flag.
+# Explicitly flip to public after publish (idempotent — safe to re-run).
+echo "Forcing public access..."
+npm access set status=public @hyperboosters/agents-mcp || true
+
 echo ""
 echo "Verifying registry..."
 sleep 5
