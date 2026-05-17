@@ -37,7 +37,7 @@ Cobertura:
 
 Free tier (10 chamadas/dia) sem cartão. Pro tier R$97/mês.
 
-Repo + docs: github.com/raoni-barbalho/agents-mcp
+Repo + docs: github.com/raonibarbalhox/agents-mcp
 npm: npmjs.com/package/@hyperboosters/agents-mcp
 
 Próximo passo: API REST hospedada pra quem não quer instalar OpenClaw local + embed widget pra qualquer site. Sai semana que vem.
@@ -132,7 +132,7 @@ Próximo: API REST hospedada (api.hyperboosters.com) — qualquer um chama via H
 
 **T10 (CTA):**
 Se faz sentido pra você:
-- ⭐ github.com/raoni-barbalho/agents-mcp
+- ⭐ github.com/raonibarbalhox/agents-mcp
 - 📦 npmjs.com/package/@hyperboosters/agents-mcp
 - 💬 DM se quiser falar
 
@@ -185,7 +185,7 @@ Now you have 16 new tools, each backed by a different specialized agent with its
 
 **Requirements**: OpenClaw CLI installed + gateway running. (Or `HB_AGENTS_MODE=local` with provider API keys in shell.)
 
-Repo: github.com/raoni-barbalho/agents-mcp
+Repo: github.com/raonibarbalhox/agents-mcp
 npm: npmjs.com/package/@hyperboosters/agents-mcp
 
 Building this in public. Next: HTTP transport (no local OpenClaw needed) + hosted API at api.hyperboosters.com.
@@ -240,7 +240,7 @@ hyperboosters.com
 
 ## Aviso: customizar antes de postar
 
-- Substituir `github.com/raoni-barbalho/agents-mcp` pelo URL real do repo (após push)
+- Substituir `github.com/raonibarbalhox/agents-mcp` pelo URL real do repo (após push)
 - Substituir `npmjs.com/package/@hyperboosters/agents-mcp` quando publicado
 - Conferir disponibilidade do nome `@hyperboosters` no npm — se não disponível, alternativas: `@hyperb`, `@hb-agents`, `@hb-claw`
 - Gravar screencast antes de postar Twitter/Reddit (visual content drives 5-10x engagement)

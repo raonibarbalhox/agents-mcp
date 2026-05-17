@@ -144,4 +144,4 @@ MIT © Raoni Barbalho — HyperBoosters
 - Website: https://hyperboosters.com
 - OpenClaw: https://docs.openclaw.ai
 - Twitter: TBD
-- Issues: https://github.com/raoni-barbalho/agents-mcp/issues
+- Issues: https://github.com/raonibarbalhox/agents-mcp/issues

@@ -138,7 +138,7 @@ Edita `package.json` `name` antes de publicar.
 
 ## Pós-publicação
 
-1. **GitHub repo** — `git remote add origin https://github.com/raoni-barbalho/agents-mcp` + push
+1. **GitHub repo** — `git remote add origin https://github.com/raonibarbalhox/agents-mcp` + push
 2. **Badge no README** — adiciona shields.io: `![npm version](https://img.shields.io/npm/v/@hyperboosters/agents-mcp)`
 3. **Posts** — usa `LAUNCH_COPY.md` (LinkedIn + Twitter + Reddit)
 4. **Monitora** — `npm view @hyperboosters/agents-mcp` mostra downloads
