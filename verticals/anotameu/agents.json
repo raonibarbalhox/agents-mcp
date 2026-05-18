@@ -1,33 +1,33 @@
 {
   "vertical": "anotameu",
   "domain": "anotameu.com",
-  "description": "AnotaMeu — IA assistente para notas + organização pessoal. Lane: read-only ref from agents-mcp; main app lives in ~/dev/anotameu.",
-  "lane_note": "agents-mcp não modifica anotameu. Esta config existe para que AnotaMeu, quando quiser, embedar agentes HB via mesmo widget/API.",
+  "description": "AnotaMeu — app web de gestão de pedidos online para restaurantes e lanchonetes (tipo anota.ai). Esta config permite ao AnotaMeu embedar agentes HB quando quiser, via mesmo widget/API.",
+  "lane_note": "agents-mcp não modifica o app AnotaMeu. Referência de integração apenas.",
   "agents": [
     {
-      "slug": "writer",
-      "id": "marketing",
-      "tier": "free",
-      "primary": true,
-      "description": "Reescreve nota em estilo X (formal, bullet, prosa)"
-    },
-    {
-      "slug": "summarizer",
-      "id": "brain-curator",
-      "tier": "pro",
-      "description": "Resumo + extração de ações de uma nota longa"
-    },
-    {
-      "slug": "research",
-      "id": "navigator",
-      "tier": "pro",
-      "description": "Pesquisa contexto referenciado em uma nota"
-    },
-    {
-      "slug": "coach",
+      "slug": "support",
       "id": "ravi-owner-jarvis",
       "tier": "free",
-      "description": "Ajuda usuário a refletir/organizar uma nota"
+      "primary": true,
+      "description": "Responde dúvidas de operação do estabelecimento, auxilia gestor do cardápio"
+    },
+    {
+      "slug": "analytics",
+      "id": "analysis",
+      "tier": "pro",
+      "description": "Análise de pedidos, ticket médio, horários de pico, produtos mais vendidos"
+    },
+    {
+      "slug": "marketing",
+      "id": "marketing",
+      "tier": "free",
+      "description": "Copy para promoções, posts de cardápio, campanhas de reativação de clientes"
+    },
+    {
+      "slug": "product",
+      "id": "pm",
+      "tier": "pro",
+      "description": "Sugestões de melhorias no cardápio e fluxo de pedidos com base em dados"
     }
   ]
 }
