@@ -1,10 +1,11 @@
 {
-  "name": "@hyperboosters/agents-mcp",
-  "version": "0.1.0",
-  "description": "MCP server exposing OpenClaw / HyperBoosters specialized agents as MCP tools. Use Ravi, Tiago, Paulo, Pedro and 20+ other Brazilian-trained AI agents inside Claude Desktop, Cursor, Codex, Windsurf, or any MCP client.",
+  "name": "@hyperboosters/hyperagents",
+  "version": "0.2.0",
+  "description": "HyperAgents — 16 Brazilian-trained AI specialists (Ravi, Tiago, Filipe, João…) as MCP tools for Claude Desktop, Cursor, Codex, Windsurf, and any MCP client. Multi-provider: OpenAI gpt-5.5, Gemini 2.5, Anthropic Claude, OpenRouter free tier, local Ollama.",
   "type": "module",
   "main": "dist/index.js",
   "bin": {
+    "hyperagents-mcp": "dist/index.js",
     "hyperboosters-agents-mcp": "dist/index.js"
   },
   "scripts": {
@@ -16,28 +17,44 @@
   "keywords": [
     "mcp",
     "model-context-protocol",
+    "anthropic",
+    "claude",
+    "claude-desktop",
+    "cursor",
+    "codex",
+    "windsurf",
     "openclaw",
     "hyperboosters",
+    "hyperagents",
     "ai-agents",
-    "claude",
-    "cursor",
+    "multi-agent",
+    "agent-orchestration",
+    "llm-tools",
     "brazilian-ai",
-    "portuguese"
+    "portuguese",
+    "openai",
+    "gemini",
+    "openrouter",
+    "ollama"
   ],
-  "author": "Raoni Barbalho <raonibarbalho@gmail.com>",
+  "author": "Raoni Barbalho <raonibarbalho@gmail.com> (https://hyperboosters.com)",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/raonibarbalhox/agents-mcp"
   },
-  "homepage": "https://hyperboosters.com",
+  "bugs": {
+    "url": "https://github.com/raonibarbalhox/agents-mcp/issues"
+  },
+  "homepage": "https://github.com/raonibarbalhox/agents-mcp#readme",
   "engines": {
     "node": ">=18"
   },
   "files": [
     "dist",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "verticals"
   ],
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.0"

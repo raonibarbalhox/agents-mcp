@@ -1,4 +1,4 @@
-# Como publicar `@hyperboosters/agents-mcp` no npm
+# Como publicar `@hyperboosters/hyperagents` no npm
 
 Passo a passo prático. ~15 minutos.
 
@@ -67,11 +67,11 @@ Vai pedir 2FA. Confirma com código do app.
 
 ```bash
 # Aguarda ~30s pra propagação
-npm view @hyperboosters/agents-mcp
+npm view @hyperboosters/hyperagents
 
 # Testa instalação em diretório limpo
 mkdir /tmp/test-mcp && cd /tmp/test-mcp
-npx -y @hyperboosters/agents-mcp --help 2>&1 | head -5
+npx -y @hyperboosters/hyperagents --help 2>&1 | head -5
 ```
 
 Se rodar, está publicado e funcionando.
@@ -86,7 +86,7 @@ Em uma sessão Cursor/Claude Desktop limpa:
   "mcpServers": {
     "hyperboosters-agents": {
       "command": "npx",
-      "args": ["-y", "@hyperboosters/agents-mcp"]
+      "args": ["-y", "@hyperboosters/hyperagents"]
     }
   }
 }
@@ -139,6 +139,6 @@ Edita `package.json` `name` antes de publicar.
 ## Pós-publicação
 
 1. **GitHub repo** — `git remote add origin https://github.com/raonibarbalhox/agents-mcp` + push
-2. **Badge no README** — adiciona shields.io: `![npm version](https://img.shields.io/npm/v/@hyperboosters/agents-mcp)`
+2. **Badge no README** — adiciona shields.io: `![npm version](https://img.shields.io/npm/v/@hyperboosters/hyperagents)`
 3. **Posts** — usa `LAUNCH_COPY.md` (LinkedIn + Twitter + Reddit)
-4. **Monitora** — `npm view @hyperboosters/agents-mcp` mostra downloads
+4. **Monitora** — `npm view @hyperboosters/hyperagents` mostra downloads

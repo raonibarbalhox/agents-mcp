@@ -22,7 +22,7 @@ Você está saindo do problema "tenho agentes mas só eu uso" e entrando no prob
    |                  Nossa Camada de Distribuição                  |
    |                                                                |
    |  MCP Server (npm package)         API REST (Cloudflare Worker)|
-   |  @hyperboosters/agents-mcp        api.hyperboosters.com/v1/...|
+   |  @hyperboosters/hyperagents        api.hyperboosters.com/v1/...|
    |                                                                |
    |  Embed Widget (script tag)        Direct Bot                  |
    |  <script src="cdn/ravi.js">       WhatsApp +5538998126865     |
@@ -85,7 +85,7 @@ Esse link/página em `/app/admin/` é **trivial de adicionar** (uma página est�
 
 **Risco residual:** o Docker continua quebrado (precisa `sudo systemctl restart docker` num momento que você puder). Mas o WhatsApp funciona sem ele agora.
 
-### 2. Criei o produto `@hyperboosters/agents-mcp`
+### 2. Criei o produto `@hyperboosters/hyperagents`
 
 **O que é:** um pacote npm (tipo um app de loja, mas pra desenvolvedores) que faz a "ponte" entre seus agentes OpenClaw e qualquer ferramenta moderna de IA (Cursor, Claude Desktop, Codex CLI, Windsurf).
 
@@ -96,7 +96,7 @@ Esse link/página em `/app/admin/` é **trivial de adicionar** (uma página est�
 {
   "hyperboosters-agents": {
     "command": "npx",
-    "args": ["-y", "@hyperboosters/agents-mcp"]
+    "args": ["-y", "@hyperboosters/hyperagents"]
   }
 }
 ```
@@ -209,7 +209,7 @@ Funciona ponta-a-ponta.
 1. **`npm login`** — logar na conta npm. Se não tem conta, criar em npmjs.com
 2. **Criar org `@hyperboosters` no npm** — `https://www.npmjs.com/org/create`
    - Free pra packages públicos
-   - Permite que o pacote seja `@hyperboosters/agents-mcp`
+   - Permite que o pacote seja `@hyperboosters/hyperagents`
 3. **Me avisar** — eu rodo `npm publish --access public` em 1 comando
 
 ### Esta semana (1-2h espalhado)

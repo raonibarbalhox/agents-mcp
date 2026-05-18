@@ -1,23 +1,26 @@
 #!/usr/bin/env node
 /**
- * @hyperboosters/agents-mcp
+ * @hyperboosters/hyperagents
  *
- * MCP server that exposes OpenClaw agents as MCP tools. Requires:
+ * MCP server exposing 16 specialist agents from the OpenClaw runtime as MCP tools.
+ * Multi-provider (OpenAI gpt-5.5, Gemini 2.5, Anthropic Claude, OpenRouter, Ollama).
+ *
+ * Requires:
  *   - OpenClaw CLI installed (`openclaw` in PATH)
  *   - OpenClaw gateway running (default: http://127.0.0.1:18789), OR
  *     `--local` mode with model provider API keys in shell env.
  *
  * Usage in Claude Desktop / Cursor / Codex / Windsurf:
  *   "mcpServers": {
- *     "hyperboosters-agents": {
+ *     "hyperagents": {
  *       "command": "npx",
- *       "args": ["-y", "@hyperboosters/agents-mcp"]
+ *       "args": ["-y", "@hyperboosters/hyperagents"]
  *     }
  *   }
  *
  * Environment variables:
  *   HB_AGENTS_MODE       — "gateway" (default) or "local"
- *   HB_AGENTS_TIMEOUT_MS — per-call timeout (default 120000)
+ *   HB_AGENTS_TIMEOUT_MS — per-call timeout in ms (default 120000)
  */
 
 import { Server } from "@modelcontextprotocol/sdk/server/index.js";
@@ -108,8 +111,8 @@ function runAgent(agentId: string, message: string): Promise<RunResult> {
 
 const server = new Server(
   {
-    name: "hyperboosters-agents",
-    version: "0.1.0",
+    name: "hyperagents",
+    version: "0.2.0",
   },
   {
     capabilities: {
@@ -199,11 +202,11 @@ async function main() {
   const transport = new StdioServerTransport();
   await server.connect(transport);
   process.stderr.write(
-    `[hyperboosters-agents-mcp] Connected. ${AGENTS.length} agents available. Mode: ${MODE}.\n`,
+    `[hyperagents] Connected. ${AGENTS.length} agents available. Mode: ${MODE}.\n`,
   );
 }
 
 main().catch((err) => {
-  process.stderr.write(`[hyperboosters-agents-mcp] Fatal: ${err.message}\n`);
+  process.stderr.write(`[hyperagents] Fatal: ${err.message}\n`);
   process.exit(1);
 });
