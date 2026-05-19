@@ -23,12 +23,9 @@
  *   HB_AGENTS_TIMEOUT_MS — per-call timeout in ms (default 120000)
  */
 
-import { Server } from "@modelcontextprotocol/sdk/server/index.js";
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-import {
-  CallToolRequestSchema,
-  ListToolsRequestSchema,
-} from "@modelcontextprotocol/sdk/types.js";
+import { z } from "zod";
 import { spawn } from "node:child_process";
 import { AGENTS } from "./agents.js";
 
@@ -109,104 +106,69 @@ function runAgent(agentId: string, message: string): Promise<RunResult> {
   });
 }
 
-const server = new Server(
-  {
-    name: "hyperagents",
-    version: "0.2.0",
-  },
-  {
-    capabilities: {
-      tools: {},
-    },
-  },
-);
+// ── McpServer (replaces deprecated Server + setRequestHandler) ──────────────
 
-server.setRequestHandler(ListToolsRequestSchema, async () => ({
-  tools: AGENTS.map((a) => ({
-    name: a.toolName,
-    description: `${a.description}\n\nExample prompt: "${a.example}"`,
-    inputSchema: {
-      type: "object",
-      properties: {
-        message: {
-          type: "string",
-          description: `Your question, prompt, or task for ${a.displayName}. Send a complete, self-contained prompt — the agent has no prior context from your conversation.`,
-        },
-      },
-      required: ["message"],
-    },
-  })),
-}));
-
-server.setRequestHandler(CallToolRequestSchema, async (request) => {
-  const toolName = request.params.name;
-  const agent = AGENTS.find((a) => a.toolName === toolName);
-  if (!agent) {
-    return {
-      content: [
-        {
-          type: "text",
-          text: `Unknown agent tool: ${toolName}. Available: ${AGENTS.map(
-            (a) => a.toolName,
-          ).join(", ")}`,
-        },
-      ],
-      isError: true,
-    };
-  }
-
-  const message =
-    (request.params.arguments?.message as string | undefined) ?? "";
-  if (!message.trim()) {
-    return {
-      content: [
-        {
-          type: "text",
-          text: `Empty message. Provide a "message" argument with your prompt for ${agent.displayName}.`,
-        },
-      ],
-      isError: true,
-    };
-  }
-
-  try {
-    const result = await runAgent(agent.id, message);
-    const usage = result.meta?.agentMeta as
-      | { usage?: { total?: number }; model?: string }
-      | undefined;
-    const footer = usage
-      ? `\n\n_[${agent.displayName} · ${usage.model ?? "?"} · ${usage.usage?.total ?? "?"} tokens]_`
-      : "";
-    return {
-      content: [
-        {
-          type: "text",
-          text: result.text + footer,
-        },
-      ],
-    };
-  } catch (err) {
-    return {
-      content: [
-        {
-          type: "text",
-          text: `Error calling ${agent.displayName}: ${(err as Error).message}`,
-        },
-      ],
-      isError: true,
-    };
-  }
+const server = new McpServer({
+  name: "hyperagents",
+  version: "0.2.0",
 });
 
-async function main() {
-  const transport = new StdioServerTransport();
-  await server.connect(transport);
-  process.stderr.write(
-    `[hyperagents] Connected. ${AGENTS.length} agents available. Mode: ${MODE}.\n`,
+for (const agent of AGENTS) {
+  server.tool(
+    agent.toolName,
+    `${agent.description}\n\nExample: "${agent.example}"`,
+    {
+      message: z
+        .string()
+        .describe(
+          `Your question, prompt, or task for ${agent.displayName}. Send a complete, self-contained prompt — the agent has no prior context from your conversation.`,
+        ),
+    },
+    async ({ message }) => {
+      if (!message.trim()) {
+        return {
+          content: [
+            {
+              type: "text" as const,
+              text: `Empty message. Provide a "message" argument with your prompt for ${agent.displayName}.`,
+            },
+          ],
+          isError: true,
+        };
+      }
+
+      try {
+        const result = await runAgent(agent.id, message);
+        const usage = result.meta?.agentMeta as
+          | { usage?: { total?: number }; model?: string }
+          | undefined;
+        const footer = usage
+          ? `\n\n_[${agent.displayName} · ${usage.model ?? "?"} · ${usage.usage?.total ?? "?"} tokens]_`
+          : "";
+        return {
+          content: [
+            {
+              type: "text" as const,
+              text: result.text + footer,
+            },
+          ],
+        };
+      } catch (err) {
+        return {
+          content: [
+            {
+              type: "text" as const,
+              text: `Error calling ${agent.displayName}: ${(err as Error).message}`,
+            },
+          ],
+          isError: true,
+        };
+      }
+    },
   );
 }
 
-main().catch((err) => {
-  process.stderr.write(`[hyperagents] Fatal: ${err.message}\n`);
-  process.exit(1);
-});
+// ── Start ────────────────────────────────────────────────────────────────────
+
+const transport = new StdioServerTransport();
+await server.connect(transport);
