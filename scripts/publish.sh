@@ -1,28 +1,29 @@
 #!/usr/bin/env bash
 # Publish @hyperboosters/hyperagents to npm.
-# Usage: bash scripts/publish.sh <6-digit-OTP-from-authenticator-app>
+# Usage: bash scripts/publish.sh [6-digit-OTP-from-authenticator-app]
 #
-# 2FA is required on @hyperboosters scope. Granular token in .env lacks
-# "bypass 2FA" flag, so OTP must be supplied per publish.
+# OTP is OPTIONAL: only needed if the npm account has 2FA at the
+# "auth-and-writes" level. With 2FA disabled or "auth-only", omit it.
+# Requires `npm login` first (npm whoami must resolve).
 
 set -euo pipefail
 
 OTP="${1:-}"
-if [ -z "$OTP" ]; then
-  echo "Usage: bash scripts/publish.sh <OTP>"
-  echo ""
-  echo "Get OTP from your authenticator app (npm 2FA — usually Google Authenticator"
-  echo "or Authy). Look for the 'npm' entry. 6-digit number."
-  exit 2
-fi
 
 cd "$(dirname "$0")/.."
 
-echo "Building..."
-npm run build
+echo "Checking npm auth..."
+npm whoami >/dev/null 2>&1 || { echo "Not logged in. Run: npm login"; exit 2; }
 
-echo "Publishing with OTP..."
-npm publish --access public --otp="$OTP"
+echo "Building + testing..."
+npm test
+
+echo "Publishing..."
+if [ -n "$OTP" ]; then
+  npm publish --access public --otp="$OTP"
+else
+  npm publish --access public
+fi
 
 # Org default visibility may force private regardless of --access flag.
 # Explicitly flip to public after publish (idempotent — safe to re-run).
