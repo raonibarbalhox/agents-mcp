@@ -42,7 +42,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/raonibarbalhox/agents-mcp"
+    "url": "git+https://github.com/raonibarbalhox/agents-mcp.git"
   },
   "bugs": {
     "url": "https://github.com/raonibarbalhox/agents-mcp/issues"
