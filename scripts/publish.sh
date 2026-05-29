@@ -12,8 +12,12 @@ OTP="${1:-}"
 
 cd "$(dirname "$0")/.."
 
+# Load NPM_TOKEN from .env (gitignored) so the bypass-2FA granular token
+# authenticates the publish without an interactive OTP. .npmrc reads ${NPM_TOKEN}.
+if [ -f .env ]; then set -a; . ./.env; set +a; fi
+
 echo "Checking npm auth..."
-npm whoami >/dev/null 2>&1 || { echo "Not logged in. Run: npm login"; exit 2; }
+npm whoami >/dev/null 2>&1 || { echo "Not authenticated. Run 'npm login' or set NPM_TOKEN in .env"; exit 2; }
 
 echo "Building + testing..."
 npm test
