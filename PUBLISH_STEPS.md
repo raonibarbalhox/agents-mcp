@@ -93,7 +93,7 @@ Em uma sessão Cursor/Claude Desktop limpa:
 ```
 
 2. Reinicia o cliente
-3. Pede algo: "use ravi_sales para escrever cold message"
+3. Pede algo: "use HB_sales para escrever cold message"
 4. Confirma resposta válida
 
 Esse é o "moment of truth" — se funciona pra você como cliente novo, funciona pra qualquer dev no mundo.

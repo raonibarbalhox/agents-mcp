@@ -7,8 +7,10 @@ import assert from "node:assert/strict";
 import { AGENTS } from "../dist/agents.js";
 
 const REQUIRED_FIELDS = ["id", "toolName", "displayName", "description", "example"];
-// MCP tool names: clients expect snake/lower identifiers, no spaces or dots.
-const TOOL_NAME_RE = /^[a-z][a-z0-9_]*$/;
+// MCP tool names: alphanumeric + underscore (MCP/Anthropic-safe: ^[A-Za-z0-9_-]{1,64}$).
+const TOOL_NAME_RE = /^[A-Za-z][A-Za-z0-9_]*$/;
+// HyperBoosters convention: every public tool is namespaced HB_<function>.
+const HB_PREFIX_RE = /^HB_/;
 
 test("catalog exposes the expected number of agents", () => {
   assert.equal(AGENTS.length, 16, `expected 16 agents, got ${AGENTS.length}`);
@@ -28,11 +30,12 @@ test("agent ids are unique", () => {
   assert.equal(new Set(ids).size, ids.length, "duplicate agent id found");
 });
 
-test("tool names are unique and MCP-safe", () => {
+test("tool names are unique, MCP-safe, and HB_-namespaced", () => {
   const names = AGENTS.map((a) => a.toolName);
   assert.equal(new Set(names).size, names.length, "duplicate toolName found");
   for (const n of names) {
-    assert.match(n, TOOL_NAME_RE, `toolName "${n}" is not MCP-safe (lowercase + _ only)`);
+    assert.match(n, TOOL_NAME_RE, `toolName "${n}" is not MCP-safe`);
+    assert.match(n, HB_PREFIX_RE, `toolName "${n}" must be HB_-namespaced`);
   }
 });
 

@@ -139,9 +139,32 @@ Risco principal: exposição ou retenção indevida de segredo/dado pessoal asso
 - **Dor técnica clara e demonstrável:** resolve um problema frequente de dev BR em minutos, com demo reproduzível, antes/depois evidente e integração simples com stack real.
 ```
 
+## Remaining 6 agents — QA 2026-05-28
+
+> Completes coverage to 16/16. Same method (`openclaw agent --agent <id> -m … --json`), gateway live, openclaw 2026.5.27.
+> (Agents logged by runtime `id`; public MCP tool names are now `HB_*` — see AGENTS.md.)
+
+| Agent (id) | HB tool | Status | Latency | Tokens | Model |
+|---|---|---|---|---|---|
+| `sre` | `HB_sre` | OK | 14s | 13970 | gpt-5.5 |
+| `pm` | `HB_product` | OK | 11s | 38840 | gpt-5.5 |
+| `creative` | `HB_creative` | OK | 7s | 12816 | gpt-5.5 |
+| `mcp-builder` | `HB_mcp_builder` | OK | 10s | 38982 | gpt-5.5 |
+| `brain-curator` | `HB_memory` | OK | 11s | 38823 | gpt-5.5 |
+| `main` | `HB_generalist` | OK | 7s | 39648 | gpt-5.5 |
+
+Sample responses:
+- `sre`: "SLO inicial: 99,9% disponibilidade mensal e p95 < 300ms / p99 < 800ms para requests válidas, carga 5k req/min."
+- `pm`: "Contexto e objetivo · Requisitos funcionais · métricas de sucesso…" (PRD skeleton)
+- `creative`: "Agera, NexoAI, Pronto, Bia, Zelo"
+- `mcp-builder`: "Mapeie cada endpoint REST → tool MCP com nome, descrição e schema de entrada…"
+- `brain-curator`: "Guarde só o que muda a próxima venda: identidade, contexto comercial, dores, objeções, funil, acordos, próximos passos. Esqueça ruído."
+- `main`: "MCP é um padrão para conectar modelos de IA a ferramentas, dados e sistemas externos de forma estruturada e interoperável."
+
 ## Summary
 
-- **Pass:** 10 / 10
-- **Total elapsed:** 225s
-- **Total tokens:** 459670
-- **Avg latency:** 22s per agent
+- **Pass (first batch):** 10 / 10
+- **Pass (remaining batch 2026-05-28):** 6 / 6
+- **Total coverage:** 16 / 16 ✅
+- **First batch:** 225s elapsed · 459670 tokens · avg 22s
+- **Second batch:** ~60s elapsed · avg 10s (faster prompts)

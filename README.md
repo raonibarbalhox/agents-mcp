@@ -47,11 +47,11 @@ Reinicie o cliente. 16 ferramentas novas aparecem.
 
 | Ferramenta | O que faz | Custo |
 |------------|-----------|-------|
-| **`ravi_jarvis`** | Assistente fundador — infra, devops, estratégia, contexto BR completo | gpt-5.5 |
-| **`ravi_sales`** | Vendas B2B em pt-BR — scripts, objeções, qualificação de lead | gpt-5.5 |
-| **`coding_filipe`** | Code review, arquitetura, debug — TypeScript / Python / Go | gpt-5.5 |
-| **`analysis_joao`** | SWOT, MECE, market sizing — frameworks de negócio em pt-BR | Ollama local |
-| **`navigator_research`** | Pesquisa web, concorrentes, fact-checking | OpenRouter free |
+| **`HB_orchestrator`** | Assistente fundador (Ravi) — infra, devops, estratégia, contexto BR completo | gpt-5.5 |
+| **`HB_sales`** | Vendas B2B em pt-BR (Ravi) — scripts, objeções, qualificação de lead | gpt-5.5 |
+| **`HB_engineer`** | Code review, arquitetura, debug (Filipe) — TypeScript / Python / Go | gpt-5.5 |
+| **`HB_analyst`** | SWOT, MECE, market sizing (João) — frameworks de negócio em pt-BR | Ollama local |
+| **`HB_research`** | Pesquisa web, concorrentes, fact-checking (Barnabé) | OpenRouter free |
 
 → [Ver todos os 16 agentes e tiers de custo](AGENTS.md)
 

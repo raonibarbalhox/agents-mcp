@@ -1,6 +1,6 @@
 {
   "name": "@hyperboosters/hyperagents",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "HyperAgents — 16 Brazilian-trained AI specialists (Ravi, Tiago, Filipe, João…) as MCP tools for Claude Desktop, Cursor, Codex, Windsurf, and any MCP client. Multi-provider: OpenAI gpt-5.5, Gemini 2.5, Anthropic Claude, OpenRouter free tier, local Ollama.",
   "type": "module",
   "main": "dist/index.js",
