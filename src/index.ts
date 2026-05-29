@@ -27,7 +27,13 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 import { spawn } from "node:child_process";
+import { createRequire } from "node:module";
 import { AGENTS } from "./agents.js";
+
+// Read version from package.json at runtime so the server version never drifts
+// from the published package version (dist/index.js → ../package.json).
+const require = createRequire(import.meta.url);
+const { version: PKG_VERSION } = require("../package.json") as { version: string };
 
 const MODE = process.env.HB_AGENTS_MODE === "local" ? "local" : "gateway";
 const TIMEOUT_MS = Number(process.env.HB_AGENTS_TIMEOUT_MS) || 120000;
@@ -110,7 +116,7 @@ function runAgent(agentId: string, message: string): Promise<RunResult> {
 
 const server = new McpServer({
   name: "hyperagents",
-  version: "0.2.0",
+  version: PKG_VERSION,
 });
 
 for (const agent of AGENTS) {
