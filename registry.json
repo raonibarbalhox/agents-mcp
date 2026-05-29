@@ -1,0 +1,130 @@
+[
+  {
+    "id": "ravi-owner-jarvis",
+    "toolName": "HB_orchestrator",
+    "publicSlug": "ravi",
+    "displayName": "HB Orchestrator — Ravi (Owner Jarvis · pt-BR mineiro)",
+    "tier": "free",
+    "apiExposed": true
+  },
+  {
+    "id": "ravi-hb-sales",
+    "toolName": "HB_sales",
+    "publicSlug": "sales",
+    "displayName": "HB Sales — Ravi Comercial (B2B SMB · mineiro)",
+    "tier": "pro",
+    "apiExposed": true
+  },
+  {
+    "id": "ravi-hb-wa",
+    "toolName": "HB_whatsapp",
+    "publicSlug": "whatsapp",
+    "displayName": "HB WhatsApp — Ravi WA Strategist",
+    "tier": "pro",
+    "apiExposed": true
+  },
+  {
+    "id": "sales",
+    "toolName": "HB_outbound",
+    "publicSlug": "outbound",
+    "displayName": "HB Outbound — Lucas (cold email/DM · free-tier)",
+    "tier": "free",
+    "apiExposed": false
+  },
+  {
+    "id": "marketing",
+    "toolName": "HB_marketing",
+    "publicSlug": "marketing",
+    "displayName": "HB Marketing — Tiago (conteúdo/ads/SEO)",
+    "tier": "free",
+    "apiExposed": true
+  },
+  {
+    "id": "coding",
+    "toolName": "HB_engineer",
+    "publicSlug": "coding",
+    "displayName": "HB Engineer — Filipe (code review/arch · gpt-5.5)",
+    "tier": "pro",
+    "apiExposed": true
+  },
+  {
+    "id": "devops",
+    "toolName": "HB_devops",
+    "publicSlug": "devops",
+    "displayName": "HB DevOps — Tomás (CI/CD · infra)",
+    "tier": "pro",
+    "apiExposed": true
+  },
+  {
+    "id": "security",
+    "toolName": "HB_security",
+    "publicSlug": "security",
+    "displayName": "HB Security — Auditor (OWASP/LGPD/RLS)",
+    "tier": "business",
+    "apiExposed": true
+  },
+  {
+    "id": "sre",
+    "toolName": "HB_sre",
+    "publicSlug": "sre",
+    "displayName": "HB SRE — Reliability Engineer (SLO/error budget)",
+    "tier": "pro",
+    "apiExposed": false
+  },
+  {
+    "id": "analysis",
+    "toolName": "HB_analyst",
+    "publicSlug": "analysis",
+    "displayName": "HB Analyst — João (SWOT/MECE · pt-BR)",
+    "tier": "pro",
+    "apiExposed": true
+  },
+  {
+    "id": "pm",
+    "toolName": "HB_product",
+    "publicSlug": "pm",
+    "displayName": "HB Product — Product Manager (PRD/roadmap)",
+    "tier": "pro",
+    "apiExposed": true
+  },
+  {
+    "id": "creative",
+    "toolName": "HB_creative",
+    "publicSlug": "creative",
+    "displayName": "HB Creative — Copy & Concepts (bilingual)",
+    "tier": "free",
+    "apiExposed": false
+  },
+  {
+    "id": "navigator",
+    "toolName": "HB_research",
+    "publicSlug": "research",
+    "displayName": "HB Research — Barnabé (web search/competitor)",
+    "tier": "pro",
+    "apiExposed": true
+  },
+  {
+    "id": "mcp-builder",
+    "toolName": "HB_mcp_builder",
+    "publicSlug": "mcp-builder",
+    "displayName": "HB MCP Builder — meta-agent (MCP/plugins)",
+    "tier": "pro",
+    "apiExposed": false
+  },
+  {
+    "id": "brain-curator",
+    "toolName": "HB_memory",
+    "publicSlug": "memory",
+    "displayName": "HB Memory — Brain Curator (RAG/knowledge)",
+    "tier": "pro",
+    "apiExposed": false
+  },
+  {
+    "id": "main",
+    "toolName": "HB_generalist",
+    "publicSlug": "generalist",
+    "displayName": "HB Generalist — RaoAI Main (fallback · gpt-5.5)",
+    "tier": "pro",
+    "apiExposed": false
+  }
+]

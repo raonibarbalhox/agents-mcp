@@ -3,6 +3,17 @@
 All notable changes to `@hyperboosters/hyperagents`.
 Format: [Keep a Changelog](https://keepachangelog.com/). Versioning: [SemVer](https://semver.org/).
 
+## [0.5.0] - 2026-05-29
+
+### Added
+- **Canonical registry**: every agent now has `publicSlug` (REST slug at `api.hyperboosters.com`), `tier` (`free`|`pro`|`business`), and `apiExposed` (whether it's live on the worker). This is the SSOT that kills id-vocabulary drift across mcp/api-worker/app.
+- **`src/registry.ts`**: typed helpers — `getAgentById`, `getAgentBySlug`, `getAgentByToolName`, `listAgents`, `listApiAgents`, `agentsByTier`.
+- **`src/client.ts`**: zero-dependency typed REST SDK for `api.hyperboosters.com` — `listAgents`, `runAgent`, `chat`, `me`. Server-side only (hbk_ key is a secret).
+- **`registry.json`**: machine-readable compact registry (auto-generated, shipped in tarball).
+- **`scripts/gen-registry.mjs`**: generates `registry.json` from built dist.
+- **`docs/APP_INTEGRATION_SNIPPET.md`**: ready-to-paste Next.js integration guide — server proxy route, `useHyperAgent` hook, `<AgentRunner>` component.
+- **Package exports**: `@hyperboosters/hyperagents/client`, `/registry`, `/registry.json` subpaths.
+
 ## [0.4.0] - 2026-05-29
 
 ### Changed (BREAKING)

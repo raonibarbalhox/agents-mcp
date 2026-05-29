@@ -1,9 +1,15 @@
 {
   "name": "@hyperboosters/hyperagents",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "HyperAgents — 16 Brazilian-trained AI specialists (Ravi, Tiago, Filipe, João…) as MCP tools for Claude Desktop, Cursor, Codex, Windsurf, and any MCP client. Multi-provider: OpenAI gpt-5.5, Gemini 2.5, Anthropic Claude, OpenRouter free tier, local Ollama.",
   "type": "module",
   "main": "dist/index.js",
+  "exports": {
+    ".": "./dist/index.js",
+    "./client": "./dist/client.js",
+    "./registry": "./dist/registry.js",
+    "./registry.json": "./registry.json"
+  },
   "bin": {
     "hyperagents-mcp": "dist/index.js",
     "hyperboosters-agents-mcp": "dist/index.js"
@@ -13,7 +19,8 @@
     "start": "node dist/index.js",
     "dev": "tsx src/index.ts",
     "test": "npm run build && node --test test/*.test.mjs",
-    "prepublishOnly": "npm run build && npm test"
+    "gen-registry": "node scripts/gen-registry.mjs",
+    "prepublishOnly": "npm run build && npm test && npm run gen-registry"
   },
   "keywords": [
     "mcp",
@@ -53,6 +60,7 @@
   },
   "files": [
     "dist",
+    "registry.json",
     "README.md",
     "CHANGELOG.md",
     "LICENSE",
